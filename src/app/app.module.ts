@@ -11,6 +11,20 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+
+export const fbConfig = {
+  apiKey: "AIzaSyDI2FYEPSqyqgIvRmp0aGrz8rBi79tg1GI",
+  authDomain: "ionic2workshop.firebaseapp.com",
+  databaseURL: "https://ionic2workshop.firebaseio.com",
+  projectId: "ionic2workshop",
+  storageBucket: "ionic2workshop.appspot.com",
+  messagingSenderId: "246753421117"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,7 +35,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(fbConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +51,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    FirebaseProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
