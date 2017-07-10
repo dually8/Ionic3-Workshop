@@ -4,9 +4,10 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { UploadPage } from '../pages/upload/upload';
+import { ViewPage } from '../pages/view/view';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,6 +16,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseProvider } from '../providers/firebase/firebase';
+import { LoginModal } from '../components/login-modal/login-modal';
+import { Camera } from '@ionic-native/camera';
 
 export const fbConfig = {
   apiKey: "AIzaSyDI2FYEPSqyqgIvRmp0aGrz8rBi79tg1GI",
@@ -29,9 +32,11 @@ export const fbConfig = {
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    UploadPage,
+    ViewPage,
+    LoginModal,
   ],
   imports: [
     BrowserModule,
@@ -44,15 +49,18 @@ export const fbConfig = {
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    UploadPage,
+    ViewPage,
+    LoginModal,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    FirebaseProvider
+    FirebaseProvider,
+    Camera,
   ]
 })
 export class AppModule { }

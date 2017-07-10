@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
@@ -11,6 +9,10 @@ export class FirebaseProvider {
 
   public get isAuthenticated(): boolean {
     return !!this.afAuth.auth.currentUser;
+  }
+
+  public get currentUser(): firebase.User {
+    return this.afAuth.auth && this.afAuth.auth.currentUser;
   }
 
   constructor(
@@ -57,7 +59,7 @@ export class FirebaseProvider {
       let query = this.db.database.ref(`users/${this.afAuth.auth.currentUser.uid}/imgs`).orderByKey();
 
       query.once('value')
-        .then((snapshot: any/*firebase.database.DataSnapshot*/) => {
+        .then((snapshot: firebase.database.DataSnapshot | any) => {
           console.log('Get pics snapshot success');
           let pics = [];
           snapshot.forEach((child) => {
@@ -71,6 +73,28 @@ export class FirebaseProvider {
           console.error(er);
           reject(er);
         });
+    })
+  }
+
+  uploadPic(data: any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      if (!this.isAuthenticated) {
+        reject('not authenticated');
+        return;
+      }
+      const user = this.currentUser.uid;
+      const path = `users/${user}`;
+      // let key = this.db.database.ref(path).child('imgs').key;
+      this.db.database.ref(path).child('imgs').push(data)
+        .then((res) => {
+          console.log('successfully uploaded photo');
+          console.log(res);
+          resolve();
+        })
+        .catch((err) => {
+          console.error(err);
+          reject(err);
+        })
     })
   }
 
