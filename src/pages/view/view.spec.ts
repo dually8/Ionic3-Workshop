@@ -29,4 +29,20 @@ describe('Upload Page', () => {
 
   it('should create component', () => expect(comp).toBeDefined());
 
+  it('should call FirebaseProvider.getPics when ViewPage.getPhotos is called', async(() => {
+    spyOn(comp.fbProv, 'getPics').and.returnValue(new Promise((resolve) => resolve(['pics'])));
+    comp.getPhotos()
+      .then(() => {
+        expect(comp.fbProv.getPics).toHaveBeenCalled();
+      })
+  }))
+
+  it('should return one pic', async(() => {
+    spyOn(comp.fbProv, 'getPics').and.returnValue(new Promise((resolve) => resolve(['pics'])));
+    comp.getPhotos()
+      .then(() => {
+        expect(comp.myPhotos[0]).toBe('pics');
+      })
+  }))
+
 });

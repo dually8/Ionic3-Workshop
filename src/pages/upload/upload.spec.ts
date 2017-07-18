@@ -29,4 +29,10 @@ describe('Upload Page', () => {
 
   it('should create component', () => expect(comp).toBeDefined());
 
+  it('should take pic', async(() => {
+    spyOn(comp, 'takePic');
+    comp.takePic();
+    expect(comp.takePic).toHaveBeenCalled();
+  }))
+
 });
