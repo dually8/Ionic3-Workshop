@@ -27,10 +27,13 @@ fdescribe('FirebaseProvider', () => {
     expect(fb).toBeDefined();
   }));
 
-  it('should login with email', async(() => {
+  it('should login with email and password', (done) => {
     fb.loginWithEmail('test@test.com', 'test123')
       .then((user) => {
         expect(user).toBeDefined();
+        done();
       })
-  }))
+      .catch(e => done.fail(e));
+  });
+
 });
