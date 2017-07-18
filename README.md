@@ -1,26 +1,38 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Ionic 3 Unit Testing Workshop
 
-## How to use this template
+This is an updated repo for the previous [Ionic 2 unit testing workshop](https://github.com/dually8/Ionic2-Workshop).
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+## Table of Contents
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+- [Requirements](#requirements)
+- [Getting Started](#getting-started)
+- [Setting up Firebase](#setting-up-firebase)
+- [Next steps](#next-steps)
 
-### With the Ionic CLI:
+## Requirements
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+- Ionic beta CLI `[sudo] npm i -g ionic`
+- Optional
+  - Angular CLI `[sudo] npm i -g angular-cli`
+  - Karma CLI `[sudo] npm i -g karma-cli`
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
-```
+## Getting Started
 
-Then, to run it, cd into `myTabs` and run:
+1. Clone the repo `git clone https://github.com/dually8/Ionic3-Workshop.git`
+2. Run `npm install` in order to install the dependencies.
+3. Run `ionic state reset` in order to install the platforms and cordova plugins.
+4. Run `npm test` (to run and watch) or `npm run test-ci` (to run once) to run the unit tests.
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+## Setting up Firebase
 
-Substitute ios for android if not on a Mac.
+1. Go to https://firebase.google.com/ and click `Get Started for Free`.
+2. Once you're signed in via Google, create a new project.
+3. Give your project a name and click Create Project.
+4. Once you're at your console/dashboard, click the Auth tab to the left.
+5. Click the Sign-In Method from the middle and enable Email/Password.
 
+## Next steps
+
+Now just run through the `todo` points in the project to complete the functionality/tests. :)
+
+Completed project will be in a separate branch
