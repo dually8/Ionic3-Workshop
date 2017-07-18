@@ -51,8 +51,7 @@ export class UploadPage {
   }
 
   showLogin() {
-    let loginModal = this.modalCtrl.create(LoginModal)
-    loginModal.present();
+    // todo 2: create and present modal
   }
 
   openOptions(): void {
@@ -118,30 +117,6 @@ export class UploadPage {
 
   uploadPic(): void {
     // todo 5: create upload pic function
-    if (!this.photo) {
-      return;
-    }
-    let loading = this.loadingCtrl.create({
-      content: 'Uploading photo...'
-    });
-    loading.present();
-
-    this.fbProv.uploadPic(this.photo)
-      .then((res) => {
-        loading.dismiss();
-        this.toastCtrl.create({
-          duration: 3000,
-          message: 'Uploaded photo successfully!',
-          position: 'middle'
-        }).present();
-      }).catch((er) => {
-        loading.dismiss();
-        this.toastCtrl.create({
-          duration: 3000,
-          message: 'Failed to upload photo',
-          position: 'middle'
-        }).present();
-      });
   }
 
   private getPicture(opts: CameraOptions): void {

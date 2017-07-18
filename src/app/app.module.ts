@@ -19,13 +19,14 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
 import { LoginModal } from '../components/login-modal/login-modal';
 import { Camera } from '@ionic-native/camera';
 
+// todo 1: fill in your firebase credentials here
 export const fbConfig = {
-  apiKey: "AIzaSyDI2FYEPSqyqgIvRmp0aGrz8rBi79tg1GI",
-  authDomain: "ionic2workshop.firebaseapp.com",
-  databaseURL: "https://ionic2workshop.firebaseio.com",
-  projectId: "ionic2workshop",
-  storageBucket: "ionic2workshop.appspot.com",
-  messagingSenderId: "246753421117"
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: ""
 };
 
 @NgModule({

@@ -25,41 +25,10 @@ export class LoginModal {
 
   login(): void {
         // todo 3: create login function
-        this.fbProv.loginWithEmail(this.email, this.password)
-            .then(() => {
-                // show success
-                this.viewCtrl.dismiss()
-                    .then(() => {
-                        this.toastCtrl.create({
-                            duration: 3000,
-                            message: 'Login successful! :)'
-                        }).present();
-                    });
-            }).catch((er) => {
-                // show error
-                this.toastCtrl.create({
-                    duration: 3000,
-                    message: 'Login failed'
-                }).present();
-            });
     }
 
     createAccount(): void {
         // todo 4: create make account function
-        this.fbProv.createAccount(this.email, this.password)
-            .then(() => {
-                // show success
-                this.toastCtrl.create({
-                    duration: 3000,
-                    message: 'Created account! :)'
-                }).present();
-            }).catch((er) => {
-                // show error
-                this.toastCtrl.create({
-                    duration: 3000,
-                    message: 'Create account failed :('
-                }).present();
-            });
     }
 
     dismiss(): void {
