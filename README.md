@@ -35,4 +35,4 @@ This is an updated repo for the previous [Ionic 2 unit testing workshop](https:/
 
 Now just run through the `todo` points in the project to complete the functionality/tests. :)
 
-Completed project will be in a separate branch
+Completed project will be in the `master` branch while the incomplete code will be in the `incomplete` branch.
